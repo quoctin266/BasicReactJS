@@ -1,4 +1,7 @@
 import React from "react";
+import "./ListTodoStyle.scss";
+import ListComponent from "./ListComponent";
+import AddItemComponent from "./AddItemComponent";
 
 class ListTodo extends React.Component {
   state = {
@@ -8,10 +11,29 @@ class ListTodo extends React.Component {
       { id: "todo3", title: "Watching movies" },
     ],
   };
+
+  addNew = (item) => {
+    this.setState({
+      listtodo: [...this.state.listtodo, item],
+    });
+  };
+
+  deleteItem = (task) => {
+    let currentArr = this.state.listtodo;
+    currentArr = currentArr.filter((item) => item.id !== task.id);
+    this.setState({
+      listtodo: currentArr,
+    });
+  };
+
   render() {
     return (
       <>
-        <div></div>
+        <AddItemComponent addNew={this.addNew} />
+        <ListComponent
+          listtodo={this.state.listtodo}
+          deleteItem={this.deleteItem}
+        />
       </>
     );
   }
