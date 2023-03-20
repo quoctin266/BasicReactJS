@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 class AddItemComponent extends React.Component {
   state = {
@@ -7,14 +8,13 @@ class AddItemComponent extends React.Component {
 
   handleAdd = () => {
     if (!this.state.title) {
-      alert("Must not be empty!");
+      toast.error("Field must not be empty!");
       return;
     }
     this.props.addNew({
       id: Math.floor(Math.random() * 100),
       title: this.state.title,
     });
-    alert("Added");
     this.setState({
       title: "",
     });
@@ -28,14 +28,17 @@ class AddItemComponent extends React.Component {
 
   render() {
     return (
-      <div className="searchBar">
-        <input
-          type="text"
-          value={this.state.title}
-          onChange={this.handleChange}
-        />
-        <button onClick={this.handleAdd}>Add</button>
-      </div>
+      <>
+        <p>TODO with ReactJS</p>
+        <div className="searchBar">
+          <input
+            type="text"
+            value={this.state.title}
+            onChange={this.handleChange}
+          />
+          <button onClick={this.handleAdd}>Add</button>
+        </div>
+      </>
     );
   }
 }

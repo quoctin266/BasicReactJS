@@ -2,6 +2,7 @@ import React from "react";
 import "./ListTodoStyle.scss";
 import ListComponent from "./ListComponent";
 import AddItemComponent from "./AddItemComponent";
+import { toast } from "react-toastify";
 
 class ListTodo extends React.Component {
   state = {
@@ -16,6 +17,7 @@ class ListTodo extends React.Component {
     this.setState({
       listtodo: [...this.state.listtodo, item],
     });
+    toast.success("Added successfully!");
   };
 
   deleteItem = (task) => {
@@ -24,6 +26,17 @@ class ListTodo extends React.Component {
     this.setState({
       listtodo: currentArr,
     });
+    toast.success("Deleted successfully!");
+  };
+
+  saveItem = (newItem) => {
+    let currentList = [...this.state.listtodo];
+    let index = currentList.findIndex((obj) => obj.id === newItem.id);
+    currentList[index] = newItem;
+    this.setState({
+      listtodo: currentList,
+    });
+    toast.success("Updated successfully!");
   };
 
   render() {
@@ -33,6 +46,7 @@ class ListTodo extends React.Component {
         <ListComponent
           listtodo={this.state.listtodo}
           deleteItem={this.deleteItem}
+          saveItem={this.saveItem}
         />
       </>
     );

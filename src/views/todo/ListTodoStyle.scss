@@ -23,6 +23,18 @@
             text-align: left;
             
         }
+        .todoItemInput {
+            display: inline-block;
+            text-align: left;
+            width: 70%;
+            position: relative;
+            input {
+                bottom: 1%;
+                left: 13%;
+                position: absolute;
+                font-size: 0.7em;
+            }
+        }
         &:first-child {
             border-top: 1px solid gray;
             padding-top: 15px;
