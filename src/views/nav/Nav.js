@@ -5,15 +5,34 @@ import { NavLink } from "react-router-dom";
 class Nav extends React.Component {
   render() {
     return (
-      <div class="topnav">
-        <NavLink to="/" activeClassName="selected" exact={true}>
+      <div className="topnav">
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "active" : "")}
+          exact="true"
+        >
           Home
         </NavLink>
-        <NavLink to="/todo" activeClassName="selected" exact={true}>
+        <NavLink
+          to="/todo"
+          className={({ isActive }) => (isActive ? "active" : "")}
+          exact="true"
+        >
           TODO
         </NavLink>
-        <NavLink to="/about" activeClassName="selected" exact={true}>
+        <NavLink
+          to="/about"
+          className={({ isActive }) => (isActive ? "active" : "")}
+          exact="true"
+        >
           About
+        </NavLink>
+        <NavLink
+          to="/user"
+          className={({ isActive }) => (isActive ? "active" : "")}
+          exact="true"
+        >
+          Users
         </NavLink>
       </div>
     );
