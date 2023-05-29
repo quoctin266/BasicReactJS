@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 class AddComponent extends React.Component {
   state = {
@@ -21,7 +22,7 @@ class AddComponent extends React.Component {
   handleOnClick = (e) => {
     e.preventDefault();
     if (!this.state.title || !this.state.salary) {
-      alert("Missing fields");
+      toast.error("Missing fields");
       return;
     }
     this.props.addNewJob({
@@ -29,7 +30,7 @@ class AddComponent extends React.Component {
       title: this.state.title,
       salary: this.state.salary,
     });
-    alert("Added.");
+    toast.success("Added.");
     this.setState({
       title: "",
       salary: "",

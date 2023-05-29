@@ -1,6 +1,7 @@
 import React from "react";
 import ChildComponent from "./ChildComponent";
 import AddComponent from "./AddComponent";
+import { toast } from "react-toastify";
 
 class MyComponent extends React.Component {
   state = {
@@ -29,6 +30,7 @@ class MyComponent extends React.Component {
     this.setState({
       arr: currentArr,
     });
+    toast.success("Deleted");
   };
 
   render() {

@@ -8,21 +8,26 @@ import Nav from "./nav/Nav";
 import Home from "./example/Home";
 import ListUsers from "./route/ListUser";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Detail from "./route/Detail";
+import GoogleMapAPI from "./example/GoogleMap";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <header className="App-header">
+        <div className="App-header">
           <Nav />
           <img src={logo} className="App-logo" alt="logo" />
           <Routes>
-            <Route path="/" element={<Home />} exact />
+            <Route path="/" element={<Home />} />
             <Route path="/todo" element={<ListTodo />} />
             <Route path="/about" element={<MyComponent />} />
             <Route path="/user" element={<ListUsers />} />
+            <Route path="/user/:id" element={<Detail />} />
+            <Route path="/testmap" element={<GoogleMapAPI />} />
           </Routes>
-        </header>
+        </div>
+        <div className="App-content"></div>
         <ToastContainer
           position="top-right"
           autoClose={5000}

@@ -1,0 +1,20 @@
+.content {
+    width: 20%;
+    margin: 0 auto;
+    text-align: left;
+    .user {
+        border-bottom: 1px solid gray;
+        height: 50px;
+        padding-top: 4%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        .view {
+            height: 37px;
+            margin-right: 4%;
+        }
+    }
+    .user:first-child {
+        border-top: 1px solid gray;
+    }
+}
